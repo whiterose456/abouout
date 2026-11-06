@@ -1,999 +1,145 @@
-<!DOCTYPE html><html class="dark" lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:auto;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{width:10px;height:10px;}::-webkit-scrollbar-track{background:#121318;}::-webkit-scrollbar-thumb{background:#3b494b;border:2px solid #121318;border-radius:999px;}::-webkit-scrollbar-thumb:hover{background:#849495;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-container-high":"#292a2f","inverse-on-surface":"#2f3036","surface-container-lowest":"#0d0e13","on-tertiary-fixed-variant":"#92002a","surface-container":"#1e1f25","on-error-container":"#ffdad6","inverse-primary":"#006970","primary":"#dbfcff","inverse-surface":"#e3e1e9","on-tertiary":"#67001b","tertiary":"#fff3f2","on-secondary-fixed":"#2c0051","on-tertiary-fixed":"#40000d","surface-bright":"#38393f","primary-fixed-dim":"#00dbe9","surface-container-highest":"#34343a","outline-variant":"#3b494b","on-primary":"#00363a","tertiary-fixed":"#ffdadb","secondary-container":"#6f00be","tertiary-container":"#ffcdcf","surface-dim":"#121318","surface-container-low":"#1a1b21","secondary-fixed":"#f0dbff","primary-container":"#00f0ff","on-error":"#690005","on-surface-variant":"#b9cacb","surface-variant":"#34343a","surface-tint":"#00dbe9","error":"#ffb4ab","surface":"#121318","on-secondary":"#490080","on-primary-container":"#006970","on-primary-fixed-variant":"#004f54","on-secondary-container":"#d6a9ff","background":"#121318","secondary":"#ddb7ff","on-tertiary-container":"#bc0b3b","error-container":"#93000a","on-secondary-fixed-variant":"#6900b3","secondary-fixed-dim":"#ddb7ff","tertiary-fixed-dim":"#ffb2b7","on-surface":"#e3e1e9","primary-fixed":"#7df4ff","on-primary-fixed":"#002022","outline":"#849495","on-background":"#e3e1e9"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1.25rem","margin":"2rem","space-sm":"0.75rem","space-lg":"2rem","space-xl":"3.5rem","gutter":"1.5rem","space-xs":"0.375rem"},"fontFamily":{"display-hero-mobile":["Space Grotesk"],"headline-md":["Space Grotesk"],"body-lg":["Plus Jakarta Sans"],"label-caps":["JetBrains Mono"],"body-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-code":["JetBrains Mono"],"headline-lg":["Space Grotesk"],"display-hero":["Space Grotesk"],"headline-sm":["Space Grotesk"],"headline-lg-mobile":["Space Grotesk"]},"fontSize":{"display-hero-mobile":["44px",{"lineHeight":"52px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.12em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"label-code":["13px",{"lineHeight":"18px","letterSpacing":"0.05em","fontWeight":"500"}],"headline-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.03em","fontWeight":"600"}],"display-hero":["72px",{"lineHeight":"80px","letterSpacing":"-0.04em","fontWeight":"700"}],"headline-sm":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"500"}],"headline-lg-mobile":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script>
-<style id="portfolio-ui-refinements">
-  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
-  body { min-width: 320px; }
-  section[id] { scroll-margin-top: 6rem; }
-  a, button { -webkit-tap-highlight-color: transparent; }
-  :focus-visible { outline: 2px solid #00dbe9; outline-offset: 3px; }
-  img { max-width: 100%; }
-  #project-filter-group { flex-wrap: wrap; max-width: 100%; }
-  #project-filter-group .filter-btn { min-height: 36px; }
-  .project-card { min-width: 0; }
-  .project-card img { transition: transform .35s ease; }
-  .project-card:hover img { transform: scale(1.025); }
-  .mobile-nav-link[aria-current="page"] { color: #7df4ff; background: rgba(0,240,255,.08); }
-  @media (max-width: 1023px) {
-    header .h-20 { height: 4.5rem; }
-    #mobile-menu { top: 4.5rem; max-height: calc(100dvh - 4.5rem); overflow-y: auto; }
-    main { padding-top: 4.5rem !important; }
-    header .max-w-7xl > .h-20 { gap: .75rem; }
-    header .max-w-7xl > .h-20 > div:first-child { min-width: 0; }
-    header .max-w-7xl > .h-20 > div:first-child a > div:last-child { min-width: 0; }
-    header .max-w-7xl > .h-20 > div:first-child a > div:last-child span:first-child { font-size: .95rem; }
-    header .max-w-7xl > .h-20 > div:first-child a > div:last-child span:last-child { font-size: 8px; letter-spacing: .04em; }
-  }
-  @media (max-width: 640px) {
-    .font-display-hero { font-size: clamp(2.5rem, 11vw, 3.5rem); line-height: 1.08; }
-    .font-headline-lg { font-size: clamp(1.7rem, 7vw, 2.25rem); line-height: 1.15; }
-    #project-filter-group { width: 100%; }
-    #project-filter-group .filter-btn { flex: 1 1 auto; }
-    #projects-container { gap: 1rem; }
-    .project-card .relative.h-48 { height: 10.5rem; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  }
-</style></head><body class="bg-background font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container antialiased"><header class="fixed top-0 w-full z-50 bg-surface-dim/85 backdrop-blur-xl border-b border-surface-container-high/50 shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="max-w-7xl mx-auto px-gutter"><div class="h-20 flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="overview" href="#"><div class="w-9 h-9 rounded-lg bg-surface-container border border-primary-container/30 flex items-center justify-center group-hover:border-primary-container transition-colors"><span class="font-headline-sm text-headline-sm text-primary">PA</span></div><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface group-hover:text-primary transition-colors">Pujolaras Anto</span><span class="font-label-caps text-label-caps text-primary-fixed-dim uppercase">COMPUTER SCIENCE · AI SYSTEMS · SECURITY RESEARCH</span></div></a></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="text-primary-container font-medium"><a aria-current="page" class="transition-colors text-primary-container font-medium" data-path="overview" href="#">Overview</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors" data-path="featured-work" href="#featured-work">Projects</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors" data-path="skills-stack" href="#skills-stack">Stack &amp; Skills</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors" data-path="mindset-sandbox" href="#beyond-the-screen">Mindset &amp; Play</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#about">About</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#contact">Terminal</a></nav><button id="mobile-menu-toggle" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center gap-space-xs"><a aria-label="LinkedIn" class="p-space-xs rounded-lg text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center" href="https://www.linkedin.com/in/pujolaras-anto" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-headline-sm">share</span></a><a aria-label="GitHub" class="p-space-xs rounded-lg text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-headline-sm">terminal</span></a></div><a class="hidden md:inline-flex items-center justify-center px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-code text-label-code uppercase tracking-wider hover:bg-primary transition-all font-semibold" data-path="contact" href="#contact">Let's Connect</a><div class="flex items-center pl-space-xs"><img alt="Pujolaras Anto Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-container/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9kPv4DezB15eLPckJdYtvoJINTSH1yvD82R4DAfxA-d3DYJUyR9iuxChmWHUlVdcw3jnBfpTeWGuUrZw0Zz8A0WdPj7r0Be9DEb_NnhMS9L9gO45fcuThmR_4b4MgkeWIolJ3BSlQndWXEVS-I01T4bTLNDOnQcOLTlW2VYUwDlS7YxkefSZsppI_x1NzKpN3VrMvimdoFKFFVbKsZAfccgoirdt6vrij7_jmp9KKJR6FKAwi-zNes-MOa8SNkBhZtiA"></div></div></div></div></header>
-<div id="mobile-menu" class="hidden lg:hidden fixed inset-x-0 top-20 z-40 border-b border-outline-variant/30 bg-surface-dim/98 backdrop-blur-xl shadow-2xl" aria-label="Mobile navigation">
-  <nav class="max-w-7xl mx-auto px-gutter py-4 flex flex-col gap-1">
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#">Overview</a>
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#featured-work">Projects</a>
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#skills-stack">Stack &amp; Skills</a>
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#beyond-the-screen">Mindset &amp; Play</a>
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#about">About</a>
-    <a class="mobile-nav-link rounded-lg px-4 py-3 text-on-surface hover:bg-surface-container-high" href="#contact">Contact</a>
-  </nav>
-</div><main class="w-full pt-20 bg-background"><div class="flex flex-col w-full overflow-hidden">
-<!-- Top Ambient Canvas Glows -->
-<div class="relative w-full">
-<div class="absolute -top-40 -left-20 w-[550px] h-[550px] bg-primary-container/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-<div class="absolute top-20 right-0 w-[600px] h-[600px] bg-secondary-container/20 rounded-full blur-[160px] pointer-events-none -z-10"></div>
-<!-- HERO SECTION -->
-<section class="relative min-h-[92vh] flex items-center justify-center px-gutter py-space-xl">
-<!-- Interactive 3D Canvas Layer -->
-
-<!-- Gradient Scrim for Content Readability -->
-<div class="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background pointer-events-none"></div>
-<div class="relative max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center z-10">
-<!-- Left Hero Content -->
-<div class="lg:col-span-7 flex flex-col items-start gap-space-md">
-<!-- Dynamic Status Pill -->
-<div class="inline-flex items-center gap-space-xs px-space-sm py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md border border-primary-container/30 shadow-lg shadow-primary-container/5">
-<span class="relative flex h-2.5 w-2.5">
-<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
-<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary-container"></span>
-</span>
-<span class="font-label-caps text-label-caps tracking-widest text-primary-fixed uppercase">BINUS '29 CS UNDERGRAD • OPEN FOR AI &amp; SYSTEMS RESEARCH</span>
-</div>
-<!-- Hero Headline -->
-<div class="flex flex-col gap-1">
-<span class="font-label-code text-label-code text-secondary font-medium tracking-wide flex items-center gap-1.5">
-<span class="material-symbols-outlined text-body-sm text-primary-container">token</span>
-  def build_the_future(): return "Unconventional"
-</span>
-<h1 class="font-display-hero text-display-hero tracking-tight text-on-surface">
-  Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary-fixed to-secondary">Pujolaras Anto</span>
-</h1>
-</div>
-<!-- Subtitle tailored from authentic resume -->
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
-  Computer Science undergraduate at BINUS University exploring artificial intelligence, multi-agent systems, systems programming, and application security. I enjoy learning by building, investigating how systems behave, and documenting what I discover.</p>
-<!-- Live Personality Highlights Ribbon -->
-<div class="flex flex-wrap items-center gap-2 pt-1">
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-high text-xs font-label-code text-primary-container border border-primary-container/20">
-<span class="material-symbols-outlined text-[14px]">smart_toy</span> Multi-Agent LangGraph
-  </span>
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-high text-xs font-label-code text-secondary border border-secondary/20">
-<span class="material-symbols-outlined text-[14px]">lock</span> Solidity &amp; Systems Security
-  </span>
-
-<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-high text-xs font-label-code text-primary-fixed border border-primary-container/20">
-<span class="material-symbols-outlined text-[14px]">query_stats</span> OSINT Intelligence
-  </span>
-</div>
-<!-- CTA Actions -->
-<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-<a class="group relative inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-primary-container text-on-primary-container font-label-code text-label-code uppercase tracking-wider font-semibold shadow-[0_0_30px_rgba(0,240,255,0.3)] hover:shadow-[0_0_40px_rgba(0,240,255,0.55)] hover:scale-[1.02] transition-all" href="#featured-work">
-<span class="">Explore Projects</span>
-<span class="material-symbols-outlined text-body-md group-hover:translate-y-0.5 transition-transform">arrow_downward</span>
-</a>
-<a class="group inline-flex items-center gap-space-xs px-space-lg py-space-sm rounded-xl bg-surface-container/80 hover:bg-secondary-container/30 border border-secondary/20 backdrop-blur-md text-on-surface font-label-code text-label-code uppercase tracking-wider hover:text-secondary shadow-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-body-md text-secondary">terminal</span>
-<span class="">github.com/whiterose456</span>
-</a>
-</div>
-<!-- Mini Terminal Snippet -->
-<div class="mt-space-sm w-full max-w-lg rounded-xl bg-surface-container-lowest/90 border border-outline-variant/30 backdrop-blur-md p-space-sm shadow-2xl">
-<div class="flex items-center justify-between pb-2 mb-2 bg-surface-container-high/40 px-space-xs py-1 rounded">
-<div class="flex items-center gap-1.5">
-<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-[#f59e0b]"></span>
-<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-</div>
-<span class="font-label-caps text-label-caps text-outline">whiterose456@binus-malang:~</span>
-</div>
-<p class="font-label-code text-label-code text-on-surface-variant truncate">
-<span class="text-secondary">$</span> git clone <span class="text-primary-container">https://github.com/whiterose456</span> &amp;&amp; ./run_intel.sh
-</p>
-<p class="font-label-code text-xs text-primary-fixed-dim pt-1 flex items-center gap-1.5">
-<span class="material-symbols-outlined text-[13px] text-primary-container">check_circle</span>
-<span class="">BINUS Malang CS '29 verified • Multi-Agent • DDIM Guided Diffusion</span>
-</p>
-</div>
-</div>
-<!-- Right Hero Portrait Showcase -->
-<div class="lg:col-span-5 flex justify-center">
-<div class="relative w-full max-w-md group">
-<!-- Dual Glow Aura Behind Portrait Card -->
-<div class="absolute -inset-1.5 bg-gradient-to-tr from-primary-container via-secondary to-primary-container rounded-2xl opacity-50 blur-xl group-hover:opacity-85 transition duration-700"></div>
-<!-- Glass Card Container -->
-<div class="relative rounded-2xl bg-surface-container-low/95 border border-primary-container/25 backdrop-blur-2xl p-space-md shadow-2xl flex flex-col gap-space-md">
-<!-- Portrait Image Container -->
-<div class="relative w-full overflow-hidden rounded-xl bg-surface-container-highest shadow-inner">
-<div class="absolute inset-0 bg-gradient-to-t from-surface-dim/90 via-transparent to-transparent z-10"></div>
-<img alt="Pujolaras Anto" class="w-full h-72 sm:h-80 object-cover object-top group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9kPv4DezB15eLPckJdYtvoJINTSH1yvD82R4DAfxA-d3DYJUyR9iuxChmWHUlVdcw3jnBfpTeWGuUrZw0Zz8A0WdPj7r0Be9DEb_NnhMS9L9gO45fcuThmR_4b4MgkeWIolJ3BSlQndWXEVS-I01T4bTLNDOnQcOLTlW2VYUwDlS7YxkefSZsppI_x1NzKpN3VrMvimdoFKFFVbKsZAfccgoirdt6vrij7_jmp9KKJR6FKAwi-zNes-MOa8SNkBhZtiA">
-<div class="absolute top-space-xs right-space-xs z-20 px-2 py-1 rounded-md bg-surface-dim/90 border border-primary-container/30 backdrop-blur-md flex items-center gap-1">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-<span class="font-label-caps text-label-caps text-primary-container">MALANG, ID</span>
-</div>
-<div class="absolute bottom-space-xs left-space-xs z-20 px-2 py-1 rounded-md bg-surface-dim/80 backdrop-blur-md">
-<span class="font-label-caps text-label-caps text-secondary font-mono">github/whiterose456</span>
-</div>
-</div>
-<!-- Portrait Meta Card Footer -->
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<div>
-<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">Pujolaras Anto</span>
-<p class="font-body-sm text-xs text-on-surface-variant">CS Undergrad, BINUS Malang (2029)</p>
-</div>
-<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container/15 border border-primary-container/40">
-<span class="w-2 h-2 rounded-full bg-primary-container"></span>
-<span class="font-label-caps text-label-caps text-primary-fixed">ACTIVELY BUILDING</span>
-</div>
-</div>
-<div class="flex items-center gap-space-xs text-on-surface-variant font-label-code text-label-code">
-<span class="material-symbols-outlined text-body-sm text-secondary">mail</span>
-<span class="text-on-surface font-medium">jo721467@gmail.com</span>
-</div>
-<!-- Live Matrix Badges from exact resume -->
-<div class="flex flex-wrap gap-1.5 pt-2">
-<span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-primary-container border border-primary-container/20">Python &amp; PyTorch</span>
-<span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-secondary border border-secondary/20">FastAPI &amp; LangGraph</span>
-<span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-on-surface-variant">Rust &amp; Solidity</span>
-<span class="px-2 py-0.5 rounded bg-surface-container font-label-caps text-label-caps text-tertiary-fixed-dim">React &amp; Next.js</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- IMPACT & PHILOSOPHY METRICS STRIP -->
-<section class="max-w-7xl mx-auto px-gutter py-space-lg w-full">
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Metric 1: Research & Code -->
-<div class="group relative rounded-xl bg-surface-container/60 border border-primary-container/20 backdrop-blur-xl p-space-md shadow-lg hover:shadow-[0_0_30px_rgba(0,240,255,0.2)] hover:border-primary-container transition-all flex flex-col justify-between">
-<div class="h-1 w-12 bg-gradient-to-r from-primary-container to-transparent rounded-full mb-space-xs"></div>
-<div>
-<div class="font-display-hero text-headline-lg font-bold text-on-surface tracking-tight group-hover:text-primary-container transition-colors">Class of '29</div>
-<p class="font-label-code text-label-code text-primary-fixed-dim uppercase tracking-wider font-semibold">COMPUTER SCIENCE</p>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Studying computer science with a focus on machine learning and security.</p>
-</div>
-<!-- Metric 2: Multi-Agent & Diffusion -->
-<div class="group relative rounded-xl bg-surface-container/60 border border-secondary/20 backdrop-blur-xl p-space-md shadow-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] hover:border-secondary transition-all flex flex-col justify-between">
-<div class="h-1 w-12 bg-gradient-to-r from-secondary to-transparent rounded-full mb-space-xs"></div>
-<div>
-<div class="font-display-hero text-headline-lg font-bold text-on-surface tracking-tight group-hover:text-secondary transition-colors">Multi-Agent</div>
-<p class="font-label-code text-label-code text-secondary uppercase tracking-wider font-semibold">Crisis Simulation &amp; LangGraph</p>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Autonomous multi-agent negotiation frameworks &amp; decision matrices.</p>
-</div>
-<!-- Metric 3: Real-Time Intelligence -->
-<div class="group relative rounded-xl bg-surface-container/60 border border-primary-container/20 backdrop-blur-xl p-space-md shadow-lg hover:shadow-[0_0_30px_rgba(0,240,255,0.2)] hover:border-primary-container transition-all flex flex-col justify-between">
-<div class="h-1 w-12 bg-gradient-to-r from-primary-container to-transparent rounded-full mb-space-xs"></div>
-<div>
-<div class="font-display-hero text-headline-lg font-bold text-on-surface tracking-tight group-hover:text-primary-container transition-colors">OSINT</div>
-<p class="font-label-code text-label-code text-primary-fixed-dim uppercase tracking-wider font-semibold">Real-Time Global Feed Sync</p>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Live RSS categorization, severity ranking &amp; keyword extraction engine.</p>
-</div>
-<!-- Metric 4: Beyond Code -->
-<div class="group relative rounded-xl bg-surface-container/60 border border-secondary/20 backdrop-blur-xl p-space-md shadow-lg hover:shadow-[0_0_30px_rgba(168,85,247,0.25)] hover:border-secondary transition-all flex flex-col justify-between">
-<div class="h-1 w-12 bg-gradient-to-r from-secondary to-transparent rounded-full mb-space-xs"></div>
-<div>
-<div class="font-display-hero text-headline-lg font-bold text-on-surface tracking-tight group-hover:text-secondary transition-colors">Sidequest</div>
-<p class="font-label-code text-label-code text-secondary uppercase tracking-wider font-semibold">Chess • BMC • Essayist</p>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant pt-2">Deep tree evaluation, strategic venture modeling &amp; analytical writing.</p>
-</div>
-</div>
-</section>
-<!-- AUTHENTIC FEATURED PROJECTS SHOWCASE (From Resume) -->
-<section class="max-w-7xl mx-auto px-gutter py-space-xl w-full" id="featured-work">
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
-<div class="flex flex-col gap-2">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-primary-container"></span>
-<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">PROVEN ENGINEERING &amp; RESEARCH</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Real-World Projects &amp; Lab Work</h2>
-</div>
-<div class="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-<!-- Interactive Category Filter Chips -->
-<div class="flex items-center gap-1.5 p-1 rounded-xl bg-surface-container-high border border-outline-variant/30" id="project-filter-group">
-<button class="filter-btn px-3 py-1 rounded-lg text-xs font-label-code uppercase tracking-wider transition-all bg-primary-container text-on-primary-container font-semibold" data-filter="all">All (6)</button>
-<button class="filter-btn px-3 py-1 rounded-lg text-xs font-label-code uppercase tracking-wider hover:text-on-surface transition-all text-on-surface-variant" data-filter="ai">AI / Agents</button>
-<button class="filter-btn px-3 py-1 rounded-lg text-xs font-label-code uppercase tracking-wider hover:text-on-surface transition-all text-on-surface-variant" data-filter="systems">Security &amp; Low-Level</button>
-<button class="filter-btn px-3 py-1 rounded-lg text-xs font-label-code uppercase tracking-wider hover:text-on-surface transition-all text-on-surface-variant" data-filter="intel">OSINT &amp; Web</button>
-</div>
-</div>
-</div>
-<!-- Projects Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg" id="projects-container">
-<!-- Project 1: OSINT World News -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-primary-container/20 hover:border-primary-container/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)]" data-category="intel" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<!-- Graphic Mockup Area -->
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/15 via-transparent to-secondary-container/20"></div>
-<!-- Live Radar / World News Pulse Graphic -->
-<svg class="w-full h-full text-primary-container/80 group-hover:scale-105 transition-transform duration-500" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-<!-- Concentric Radar Circles -->
-<circle cx="150" cy="75" opacity="0.4" r="60" stroke="currentColor" stroke-dasharray="2 4" stroke-width="1.2"></circle>
-<circle cx="150" cy="75" opacity="0.6" r="40" stroke="currentColor" stroke-width="1.2"></circle>
-<circle cx="150" cy="75" r="18" stroke="#a855f7" stroke-width="1.5"></circle>
-<line opacity="0.3" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="150" x2="150" y1="15" y2="135"></line>
-<line opacity="0.3" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="90" x2="210" y1="75" y2="75"></line>
-<!-- World Event Hotspot Nodes -->
-<circle class="animate-ping" cx="110" cy="55" fill="#00f0ff" r="4.5" style="animation-duration: 3s;"></circle>
-<circle cx="110" cy="55" fill="#00f0ff" r="4"></circle>
-<circle cx="185" cy="65" fill="#a855f7" r="4"></circle>
-<circle cx="130" cy="95" fill="#ffb4ab" r="3.5"></circle>
-<circle cx="170" cy="90" fill="#00f0ff" r="3"></circle>
-<!-- Simulated Data Feed Wave -->
-<path d="M40 125 Q 90 90, 150 120 T 260 110" fill="none" opacity="0.8" stroke="currentColor" stroke-width="2"></path>
-</svg>
-<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-dim/90 border border-primary-container/30 font-label-code text-[11px] text-primary-fixed">
-  LIVE BBC RSS
-</div>
-<div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-label-caps text-primary-fixed">
-  SEVERITY_EXTRACTOR: ACTIVE
-</div>
-</div>
-<!-- Tags -->
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container border border-primary-container/20">REACT</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">VITE + TS</span>
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary">EXPRESS</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface-variant">NODE.JS</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">OSINT World News</h3>
-<span class="font-label-code text-xs text-outline">2024–2026</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Full-stack global news intelligence dashboard aggregating live BBC World RSS feeds. Features rule-based automated event classification, severity scoring, keyword extraction, and dynamic real-time map visualization.
-</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-primary-fixed-dim">whiterose456/Osint-world-news</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-primary-container transition-colors group-hover:translate-x-0.5" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="">Repo</span>
-<span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Project 2: Supply Chain Crisis Room (Hackathon) -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-secondary/20 hover:border-secondary/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(168,85,247,0.25)]" data-category="ai" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<!-- Graphic Mockup Area -->
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-bl from-secondary-container/25 via-transparent to-primary-container/15"></div>
-<!-- Multi-Agent Graph Network SVG -->
-<svg class="w-full h-full text-secondary group-hover:scale-105 transition-transform duration-500" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-<!-- Agent Negotiation Nodes -->
-<line stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5" x1="70" x2="150" y1="45" y2="35"></line>
-<line stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.5" x1="70" x2="150" y1="105" y2="115"></line>
-<line stroke="#00f0ff" stroke-width="1.5" x1="150" x2="150" y1="35" y2="115"></line>
-<line stroke="#00f0ff" stroke-width="2" x1="150" x2="230" y1="75" y2="75"></line>
-<!-- Node Elements with glow -->
-<circle cx="70" cy="45" fill="#a855f7" r="8"></circle>
-<circle cx="70" cy="105" fill="#a855f7" r="8"></circle>
-<circle cx="150" cy="35" fill="#00f0ff" r="10"></circle>
-<circle cx="150" cy="115" fill="#00f0ff" r="10"></circle>
-<circle cx="230" cy="75" fill="#ddb7ff" r="12"></circle>
-<!-- Decision Arbiter Icon in Center -->
-<text fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="64" y="49">A1</text>
-<text fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="64" y="109">A2</text>
-<text fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="144" y="39">N1</text>
-<text fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="144" y="119">N2</text>
-<text fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="223" y="79">⚖</text>
-</svg>
-<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-secondary-container/80 text-on-secondary font-label-code text-[11px] font-bold">
-  HACKATHON
-</div>
-<div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-label-caps text-secondary">
-  LANGGRAPH + QWEN LLM
-</div>
-</div>
-<!-- Tags -->
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary border border-secondary/20">FASTAPI</span>
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container">LANGGRAPH</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">NEXT.JS</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface-variant">PYTHON</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Supply Chain Crisis Room</h3>
-<span class="font-label-code text-xs text-outline">2026</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Multi-agent collaborative crisis simulation platform. Orchestrates autonomous agent workflows for supplier-carrier negotiation, contingency scenario analysis, and algorithmic evaluation scripts across simulated bottleneck disruptions. (HACKATHON PROJECT)</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-secondary">whiterose456/SupplySentinel</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-secondary transition-colors group-hover:translate-x-0.5" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="">Repo</span>
-<span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Project 3: Guided Diffusion for 1D Trajectory -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-primary-container/20 hover:border-primary-container/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)]" data-category="ai" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<!-- Graphic Mockup Area -->
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-t from-primary-container/10 via-transparent to-secondary-container/15"></div>
-<!-- Diffusion Trajectory Curves SVG -->
-<svg class="w-full h-full text-primary-container group-hover:scale-105 transition-transform duration-500" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-<!-- Denoising Trajectories Iteration Steps -->
-<path d="M 30 110 Q 70 20, 140 80 T 270 40" opacity="0.3" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"></path>
-<path d="M 30 110 Q 75 35, 145 75 T 270 40" opacity="0.5" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1.3"></path>
-<path d="M 30 110 Q 80 50, 150 70 T 270 40" stroke="#00f0ff" stroke-width="2.5"></path>
-<!-- Key Anchor Waypoints -->
-<circle cx="30" cy="110" fill="#ddb7ff" r="5"></circle>
-<circle cx="150" cy="70" fill="#00f0ff" r="5.5"></circle>
-<circle cx="270" cy="40" fill="#ddb7ff" r="5"></circle>
-<!-- Temporal Step Markers -->
-<rect fill="#1e1f25" height="14" rx="3" stroke="#00f0ff" stroke-width="1" width="30" x="135" y="115"></rect>
-<text fill="#00f0ff" font-family="JetBrains Mono" font-size="8" x="140" y="125">T=1000</text>
-</svg>
-<div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-label-caps text-primary-fixed">
-  TEMPORAL RESIDUAL U-NET
-</div>
-<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-[11px] text-on-surface-variant">
-  PYTORCH • DDIM
-</div>
-</div>
-<!-- Tags -->
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container border border-primary-container/20">PYTORCH</span>
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary">DIFFUSION</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">U-NET</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface-variant">GOOGLE COLAB</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">Guided Diffusion 1D Trajectory</h3>
-<span class="font-label-code text-xs text-outline">2026</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Reimplementation of guided diffusion models for continuous 1D trajectory synthesis based on published deep learning research. Built temporal residual U-Net, DDIM deterministic sampling &amp; classifier-free guidance pipelines.
-</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-primary-fixed-dim">whiterose456/1D-Trajectory-Guided-Diffusion</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-primary-container transition-colors group-hover:translate-x-0.5" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="">Repo</span>
-<span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Project 4: Smart Contract & Systems Security Research -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-secondary/20 hover:border-secondary/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(168,85,247,0.25)]" data-category="systems" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<!-- Graphic Mockup Area -->
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-tr from-secondary-container/20 via-transparent to-primary-container/10"></div>
-<!-- Security Matrix / EVM Bytecode Disassembly SVG -->
-<svg class="w-full h-full text-secondary group-hover:scale-105 transition-transform duration-500" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-<!-- Shield Outline with Bytecode Nodes -->
-<path d="M 150 20 L 220 50 V 95 C 220 125, 150 140, 150 140 C 150 140, 80 125, 80 95 V 50 Z" fill="#6f00be" fill-opacity="0.15" stroke="currentColor" stroke-width="1.8"></path>
-<path d="M 120 70 L 145 95 L 185 55" stroke="#00f0ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-<!-- Disassembly Lines -->
-<text fill="#849495" font-family="JetBrains Mono" font-size="9" x="25" y="45">0x00 SLOAD</text>
-<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" x="25" y="65">0x04 REENTRANCY</text>
-<text fill="#00f0ff" font-family="JetBrains Mono" font-size="9" x="25" y="85">0x08 NON_REENTRANT</text>
-<text fill="#849495" font-family="JetBrains Mono" font-size="9" x="25" y="105">0x0C SSTORE</text>
-</svg>
-<div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-label-caps text-secondary">
-  SOLIDITY AUDIT &amp; MEMORY
-</div>
-<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-[11px] text-error font-mono">
-  CVE REENTRANCY GUARD
-</div>
-</div>
-<!-- Tags -->
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary border border-secondary/20">SOLIDITY</span>
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container">RUST</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">LOW-LEVEL C</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface-variant">AUDITING</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">Smart Contract &amp; Systems Security</h3>
-<span class="font-label-code text-xs text-outline">2023–Present</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Manual vulnerability audits on Solidity lending protocols, examining access control logic, reentrancy guards, and arithmetic overflow states. Deep-dive into memory safety &amp; pointers with low-level C and Rust systems.
-</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-secondary">whiterose456/Solidity-lending-protocol</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-secondary transition-colors group-hover:translate-x-0.5" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="">Repo</span>
-<span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Project 5: AI & Computer Science Compendium -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-primary-container/20 hover:border-primary-container/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.25)]" data-category="ai" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<!-- Graphic Mockup Area -->
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-t from-primary-container/15 via-transparent to-secondary-container/15"></div>
-<!-- Knowledge Compendium Graph SVG -->
-<svg class="w-full h-full text-primary-fixed-dim group-hover:scale-105 transition-transform duration-500" fill="none" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-<rect fill="#1e1f25" height="40" rx="6" stroke="#00f0ff" stroke-width="1.2" width="85" x="50" y="30"></rect>
-<text fill="#00f0ff" font-family="JetBrains Mono" font-size="10" x="60" y="54">Deep Learning</text>
-<rect fill="#1e1f25" height="40" rx="6" stroke="#a855f7" stroke-width="1.2" width="85" x="165" y="30"></rect>
-<text fill="#ddb7ff" font-family="JetBrains Mono" font-size="10" x="175" y="54">Distributed Sys</text>
-<rect fill="#1e1f25" height="40" rx="6" stroke="#00dbe9" stroke-width="1.2" width="90" x="105" y="90"></rect>
-<text fill="#dbfcff" font-family="JetBrains Mono" font-size="10" x="117" y="114">Algorithms</text>
-<path d="M 92 70 L 140 90" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1.2"></path>
-<path d="M 207 70 L 160 90" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1.2"></path>
-</svg>
-<div class="absolute bottom-2 left-3 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-label-caps text-primary-container">
-  STRUCTURED KNOWLEDGE BASE
-</div>
-<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-dim/90 font-label-code text-[11px] text-primary-fixed">
-  CONTINUOUS RESEARCH
-</div>
-</div>
-<!-- Tags -->
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container border border-primary-container/20">MACHINE LEARNING</span>
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary">SYSTEMS</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface">ALGORITHMS</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">AI &amp; CS Compendium</h3>
-<span class="font-label-code text-xs text-outline">2024–Present</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Living curated research archive reproducing seminal AI architectures (LLMs, transformers, diffusion), OS fundamentals, distributed memory consensus, and clean algorithm implementations.
-</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-primary-fixed-dim">whiterose456/Awesome-repo-listfortechCS_AI</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-primary-container transition-colors group-hover:translate-x-0.5" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="">Docs</span>
-<span class="material-symbols-outlined text-sm">open_in_new</span>
-</a>
-</div>
-</div>
-<!-- Project 6 (Bonus Vibe): Real-Time Interactive Canvas & WebGL Playground -->
-<div class="project-card group rounded-2xl bg-surface-container-low/80 hover:bg-surface-container border border-outline-variant/40 hover:border-primary-container/60 backdrop-blur-md overflow-hidden flex flex-col justify-between shadow-xl transition-all duration-300 hover:shadow-[0_0_35px_rgba(0,240,255,0.2)]" data-category="intel" style="display: flex;">
-<div class="p-space-md flex flex-col gap-space-sm">
-<div class="relative h-48 rounded-xl bg-surface-container-lowest overflow-hidden flex items-center justify-center p-space-sm border border-outline-variant/20">
-<div class="absolute inset-0 bg-gradient-to-tr from-primary-container/10 via-transparent to-secondary-container/20"></div>
-<div class="flex flex-col items-center justify-center text-center gap-2">
-<span class="material-symbols-outlined text-4xl text-primary-container animate-pulse">deployed_code</span>
-<span class="font-label-code text-xs text-on-surface">Three.js + GLSL Shader Matrix</span>
-<div class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-label-caps text-secondary">
-    HERO SCENE BACKGROUND
-  </div>
-</div>
-</div>
-<div class="flex flex-wrap gap-1.5 pt-1">
-<span class="px-2 py-0.5 rounded bg-primary-container/10 font-label-caps text-label-caps text-primary-container">THREE.JS</span>
-<span class="px-2 py-0.5 rounded bg-secondary-container/30 font-label-caps text-label-caps text-secondary">WEBGL</span>
-<span class="px-2 py-0.5 rounded bg-surface-container-high font-label-caps text-label-caps text-on-surface-variant">CREATIVE CODE</span>
-</div>
-<div class="flex items-baseline justify-between">
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors">Spatial Interactive Canvas</h3>
-<span class="font-label-code text-xs text-outline">Active</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">
-  Real-time client-side interactive rendering framework powering this portfolio. Demonstrating mathematical meshes, mouse raycasting, and GPU shader pipelines.
-</p>
-</div>
-<div class="p-space-md pt-0 flex items-center justify-between border-t border-outline-variant/20 mt-2">
-<span class="font-label-code text-xs text-primary-fixed-dim">Integrated View</span>
-<a class="inline-flex items-center gap-1 font-label-code text-xs text-on-surface hover:text-primary-container transition-colors" href="#">
-<span class="">Scroll to Hero</span>
-<span class="material-symbols-outlined text-sm">arrow_upward</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- NEW PLAYFUL SECTION: "BEYOND THE SCREEN / MINDSET SANDBOX" -->
-<section class="max-w-7xl mx-auto px-gutter py-space-xl w-full" id="beyond-the-screen">
-<div class="relative rounded-3xl bg-gradient-to-b from-surface-container-low/90 to-surface-container/70 border border-primary-container/25 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-2xl overflow-hidden">
-<!-- Ambient Glows -->
-<div class="absolute top-0 right-10 w-96 h-96 bg-primary-container/10 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="absolute bottom-0 left-10 w-96 h-96 bg-secondary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
-<div class="relative z-10 flex flex-col gap-space-lg">
-<!-- Header -->
-<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-<div class="flex flex-col gap-2">
-<div class="inline-flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-secondary"></span>
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">BEYOND PURE SYNTAX</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Beyond the Screen</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
-        True engineering thrives at the intersection of logical deduction, venture viability, structured writing, and curious playful experiments.
-      </p>
-</div>
-<div class="px-4 py-2 rounded-xl bg-surface-container-highest/80 border border-outline-variant/30 text-xs font-label-code text-primary-fixed-dim flex items-center gap-2">
-<span class="material-symbols-outlined text-sm text-primary-container">psychology_alt</span>
-<span class="">"Code is only half the chess board."</span>
-</div>
-</div>
-<!-- 4 Playful Interactive Sandbox Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Hobby 1: Chess Tactician -->
-<div class="group relative rounded-2xl bg-surface-container-high/60 hover:bg-surface-container-high/90 border border-outline-variant/30 hover:border-primary-container transition-all duration-300 p-space-md flex flex-col justify-between shadow-lg"><div class="flex flex-col gap-space-xs"><div class="relative w-full h-28 rounded-xl overflow-hidden border border-outline-variant/20 mb-2"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCik625p4J2iDO_3fRUuuWzo3mJw_l2Pk2zLaGrHG9DgGWI0zsN2G5iKEzy8By1bL5d_oBtAeGloeXUv32vqtqAwG3kEKe1fHwKcwWTbwrYxmAXD4H2jxTc6HqFPee-kBi9dhJrRB3Mp2gUwS_tzdVLHcqZ0JQxlZMLESJknuE3Lxypr5qlupWRkduk5gYLxAOoZRIzcsA1WI_7s9kgM-6QiWGCX_OReYwxxjLdB7bGtD1n-WXZ_MVE5qIpHtzAJdR5tdc" alt="Chess.com Gameplay" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"><div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-dim/90 backdrop-blur-md border border-primary-container/30 font-label-code text-[10px] text-primary-fixed">CHESS.COM</div></div><div class="flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-8 h-8 rounded-lg bg-primary-container/15 text-primary-container flex items-center justify-center text-lg font-bold">♟</span><span class="font-label-caps text-label-caps text-primary-fixed">CASUAL &amp; BLITZ</span></div><span class="px-2 py-0.5 rounded bg-surface-dim font-label-code text-[11px] text-on-surface-variant">Hobbyist</span></div><h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors pt-1">Casual Chess &amp; Blitz</h3><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Kicking back with casual 3-minute blitz games and daily puzzles on Chess.com. Nothing too grandmaster-level—just a fun, humble mental unwind between deep learning builds and late-night debugging sessions.</p></div><div class="mt-space-sm p-2 rounded-lg bg-surface-container-lowest/90 border border-outline-variant/30"><div class="flex flex-wrap gap-1.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] font-label-code text-primary-container border border-primary-container/20">Blitz &amp; Puzzles</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] font-label-code text-on-surface-variant">Chess.com Hobbyist</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-[10px] font-label-code text-secondary">Always Learning</span></div></div></div>
-<!-- Hobby 2: Business Model Canvas & Pitch Decks -->
-<div class="group relative rounded-2xl bg-surface-container-high/60 hover:bg-surface-container-high/90 border border-outline-variant/30 hover:border-secondary transition-all duration-300 p-space-md flex flex-col justify-between shadow-lg">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="w-10 h-10 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">view_kanban</span>
-</span>
-<span class="px-2 py-0.5 rounded bg-surface-dim font-label-code text-[11px] text-secondary">BMC &amp; DECKS</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors pt-2">Venture Architecture</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Deep technology without a business model is just an expensive demo. Obsessed with value proposition mapping, unit economics, TAM/SAM sizing, and concise high-stakes pitch narratives.
-        </p>
-</div>
-<!-- BMC Interactive Matrix Pill -->
-<div class="mt-space-sm p-2 rounded-lg bg-surface-container-lowest/90 border border-outline-variant/30 flex flex-col gap-1">
-<div class="flex items-center justify-between text-[11px] font-label-code">
-<span class="text-on-surface-variant">Value Prop:</span>
-<span class="text-secondary font-semibold">Autonomous Ops</span>
-</div>
-<div class="flex items-center justify-between text-[11px] font-label-code">
-<span class="text-on-surface-variant">CAC vs LTV:</span>
-<span class="text-primary-container font-semibold">&gt; 3.5x Model</span>
-</div>
-<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-1">
-<div class="bg-gradient-to-r from-secondary to-primary-container h-full rounded-full" style="width: 78%;"></div>
-</div>
-</div>
-</div>
-<!-- Hobby 3: Essay Writing & Research Competitions -->
-<div class="group relative rounded-2xl bg-surface-container-high/60 hover:bg-surface-container-high/90 border border-outline-variant/30 hover:border-primary-container transition-all duration-300 p-space-md flex flex-col justify-between shadow-lg">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="w-10 h-10 rounded-xl bg-primary-container/15 text-primary-container flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">history_edu</span>
-</span>
-<span class="px-2 py-0.5 rounded bg-surface-dim font-label-code text-[11px] text-primary-fixed">ESSAY &amp; PAPERS</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary-container transition-colors pt-2">Essay Writing &amp; Debates</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Active participant in national &amp; campus scientific essay challenges. Dissecting the socio-economic impacts of automated AI agents, algorithmic sovereign risks, and ethical governance.
-        </p>
-</div>
-<!-- Competition Badge Strip -->
-<div class="mt-space-sm p-2 rounded-lg bg-surface-container-lowest/90 border border-outline-variant/30 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary-container text-lg">military_tech</span>
-<div class="flex flex-col text-[11px] font-label-code">
-<span class="text-on-surface font-semibold">National Essay Competitions</span>
-<span class="text-on-surface-variant">Analytical AI Governance</span>
-</div>
-</div>
-</div>
-<!-- Hobby 4: Late-Night Systems Rabbit Holes -->
-<div class="group relative rounded-2xl bg-surface-container-high/60 hover:bg-surface-container-high/90 border border-outline-variant/30 hover:border-secondary transition-all duration-300 p-space-md flex flex-col justify-between shadow-lg">
-<div class="flex flex-col gap-space-xs">
-<div class="flex items-center justify-between">
-<span class="w-10 h-10 rounded-xl bg-secondary-container/30 text-secondary flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl">developer_board</span>
-</span>
-<span class="px-2 py-0.5 rounded bg-surface-dim font-label-code text-[11px] text-secondary">RUST &amp; KERNEL</span>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors pt-2">Kernel Rabbit Holes</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-          Exploring exotic memory allocators, zero-copy socket buffers in Linux, dissecting smart contract bytecode disassemblies, and tinkering with bare-metal Rust crates until 3:00 AM.
-        </p>
-</div>
-<!-- Terminal Prompt Snippet -->
-<div class="mt-space-sm p-2 rounded-lg bg-surface-container-lowest/90 border border-outline-variant/30 font-label-code text-[11px] text-primary-fixed-dim">
-<span class="text-secondary">#</span> cargo flamegraph --root<br>
-<span class="text-primary-container">&gt;&gt;</span> 0 heap allocs in critical loop
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0e13">
+  <meta name="description" content="Pujolaras Anto — computer science student building software across AI, security, and systems. Selected projects, technical interests, and contact details.">
+  <meta property="og:title" content="Pujolaras Anto — Computer Science & Software">
+  <meta property="og:description" content="Projects and explorations across AI, application security, and software systems.">
+  <meta property="og:type" content="website">
+  <title>Pujolaras Anto — Computer Science & Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#0b0e13;--panel:#111720;--panel2:#151e29;--line:#263342;--text:#edf3f7;--muted:#a1afbd;--soft:#718293;--cyan:#80e3dc;--blue:#8baeff;--violet:#b5a0ff;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.65;overflow-x:hidden}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:rgba(128,227,220,.28);color:#fff}.skip{position:absolute;left:-999px;top:12px;background:var(--cyan);color:#071014;padding:10px 14px;border-radius:8px;z-index:99}.skip:focus{left:12px}:focus-visible{outline:2px solid var(--cyan);outline-offset:4px}
+    .shell{width:min(var(--max),calc(100% - 48px));margin:auto}.mono,.eyebrow,.tag,.nav-meta{font-family:"DM Mono",monospace}.eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan)}.muted{color:var(--muted)}
+    header{height:76px;position:sticky;top:0;z-index:30;background:rgba(11,14,19,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(87,111,132,.2)}.nav{height:100%;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.04em}.brand-mark{width:36px;height:36px;border:1px solid rgba(128,227,220,.4);border-radius:11px;display:grid;place-items:center;color:var(--cyan);background:linear-gradient(145deg,rgba(128,227,220,.12),rgba(139,174,255,.06));font-size:13px}.nav-links{display:flex;align-items:center;gap:28px}.nav-links a{font-size:13px;color:var(--muted);transition:color .2s}.nav-links a:hover,.nav-links a[aria-current]{color:var(--cyan)}.nav-cta{padding:9px 14px;border:1px solid rgba(128,227,220,.4);border-radius:9px;color:var(--cyan)!important}.menu-toggle{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:9px;padding:8px 11px}
+    .hero{position:relative;min-height:650px;padding:105px 0 95px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:50px}.hero:before{content:"";position:absolute;width:540px;height:540px;left:-220px;top:0;background:radial-gradient(circle,rgba(72,165,167,.13),transparent 68%);pointer-events:none}.hero-copy{position:relative;z-index:2}.availability{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid rgba(128,227,220,.23);background:rgba(128,227,220,.06);border-radius:999px;color:#b8d8d7;font:11px "DM Mono",monospace;letter-spacing:.05em}.dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(128,227,220,.8)}h1{font:800 clamp(48px,6.3vw,78px)/1.04 Manrope,sans-serif;letter-spacing:-.075em;margin:27px 0 22px;max-width:760px}h1 span{color:var(--cyan)}.hero-lead{font-size:18px;line-height:1.75;color:#b1bdc9;max-width:620px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.button{display:inline-flex;align-items:center;gap:10px;padding:12px 17px;border-radius:10px;border:1px solid var(--line);font-weight:600;font-size:13px;transition:transform .2s,border-color .2s,background .2s}.button:hover{transform:translateY(-2px);border-color:var(--cyan)}.button.primary{background:var(--cyan);color:#071315;border-color:var(--cyan)}.button.secondary{background:rgba(255,255,255,.025);color:var(--text)}.hero-foot{display:flex;gap:22px;flex-wrap:wrap;margin-top:42px;color:var(--soft);font:11px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}.hero-foot span:before{content:"↗";color:var(--cyan);margin-right:7px}
+    .visual{height:420px;position:relative;display:grid;place-items:center;perspective:900px}.visual-glow{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(77,173,177,.18),rgba(95,112,195,.08) 48%,transparent 72%);filter:blur(10px)}.orbital{position:relative;width:330px;height:330px;border:1px solid rgba(128,227,220,.24);border-radius:50%;transform:rotateX(64deg) rotateZ(-24deg);box-shadow:0 0 80px rgba(67,164,169,.1),inset 0 0 45px rgba(128,227,220,.04);animation:float 9s ease-in-out infinite}.orbital:before,.orbital:after{content:"";position:absolute;inset:34px;border:1px solid rgba(139,174,255,.2);border-radius:50%}.orbital:after{inset:82px;border-color:rgba(181,160,255,.25)}.core{position:absolute;left:50%;top:50%;width:118px;height:118px;transform:translate(-50%,-50%) rotateX(-64deg) rotateZ(24deg);border-radius:32px;display:grid;place-items:center;background:linear-gradient(145deg,#1c3740,#141b2b 65%);border:1px solid rgba(128,227,220,.5);box-shadow:0 20px 80px rgba(56,190,183,.14),inset 0 1px rgba(255,255,255,.1);font:800 28px Manrope;color:var(--cyan);letter-spacing:-.08em}.satellite{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 22px var(--cyan);top:42px;left:64px}.satellite.s2{top:auto;left:auto;right:20px;bottom:94px;width:8px;height:8px;background:var(--violet);box-shadow:0 0 20px var(--violet)}.visual-label{position:absolute;padding:10px 13px;border:1px solid rgba(139,174,255,.22);border-radius:10px;background:rgba(17,23,32,.85);backdrop-filter:blur(12px);font:11px "DM Mono",monospace;color:#c7d3df}.visual-label.one{top:45px;right:0}.visual-label.two{bottom:45px;left:0}.visual-label.three{bottom:12px;right:18px;color:var(--cyan)}
+    section{padding:86px 0;border-top:1px solid rgba(87,111,132,.16)}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:34px}.section-head h2{font:700 clamp(30px,4vw,44px)/1.12 Manrope,sans-serif;letter-spacing:-.06em;margin:9px 0 0}.section-note{max-width:360px;color:var(--muted);font-size:13px}
+    .project-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}.filter{border:1px solid var(--line);background:transparent;color:var(--muted);padding:8px 12px;border-radius:8px;font:11px "DM Mono",monospace;cursor:pointer}.filter[aria-pressed=true],.filter:hover{border-color:rgba(128,227,220,.5);color:var(--cyan);background:rgba(128,227,220,.07)}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{min-width:0;padding:22px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(155deg,rgba(21,30,41,.88),rgba(15,21,29,.8));display:flex;flex-direction:column;min-height:285px;transition:transform .25s,border-color .25s,background .25s}.project:hover{transform:translateY(-4px);border-color:rgba(128,227,220,.45);background:linear-gradient(155deg,#182633,#111720)}.project-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}.project-icon{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--cyan);background:rgba(128,227,220,.08);border:1px solid rgba(128,227,220,.18);font:16px "DM Mono",monospace}.project-type{color:var(--soft);font:10px "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}.project h3{font:700 19px Manrope,sans-serif;letter-spacing:-.035em;margin:0 0 9px}.project p{font-size:13px;color:var(--muted);line-height:1.7;margin:0 0 22px}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;margin-bottom:18px}.tag{font-size:10px;color:#9eb7c4;background:rgba(139,174,255,.06);border:1px solid rgba(139,174,255,.13);padding:4px 7px;border-radius:5px}.project-link{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(87,111,132,.2);padding-top:14px;color:var(--cyan);font:11px "DM Mono",monospace}.project-link span:last-child{font-size:16px}
+    .split{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}.about-card{padding:25px;border:1px solid var(--line);border-radius:15px;background:var(--panel);height:fit-content}.about-initials{width:62px;height:62px;display:grid;place-items:center;border-radius:17px;background:linear-gradient(140deg,rgba(128,227,220,.18),rgba(139,174,255,.1));border:1px solid rgba(128,227,220,.3);font:800 20px Manrope;color:var(--cyan);margin-bottom:18px}.about-card h3{font:700 19px Manrope;margin:0}.about-card p{color:var(--muted);font-size:13px}.about-links{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px;font:11px "DM Mono",monospace;color:var(--cyan)}.about-copy h2{font:700 clamp(29px,4vw,42px)/1.15 Manrope;letter-spacing:-.06em;margin:8px 0 20px}.about-copy p{color:var(--muted);font-size:15px;line-height:1.9}.principles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:25px}.principle{padding:15px;border:1px solid var(--line);border-radius:11px;background:rgba(17,23,32,.7)}.principle strong{display:block;font:600 13px Manrope;margin-bottom:5px}.principle span{font-size:12px;color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.skill-group{padding:19px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.skill-group h3{font:600 13px Manrope;margin:0 0 12px;color:var(--cyan)}.skill-group p{font-size:12px;color:var(--muted);margin:0;line-height:1.9}
+    .contact{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:34px;border:1px solid rgba(128,227,220,.25);border-radius:17px;background:radial-gradient(circle at 90% 10%,rgba(128,227,220,.09),transparent 35%),var(--panel)}.contact h2{font:700 clamp(28px,4vw,40px) Manrope;letter-spacing:-.06em;margin:8px 0}.contact p{max-width:560px;color:var(--muted);font-size:14px}.contact-actions{display:flex;flex-direction:column;gap:10px;min-width:190px}.contact-actions .button{justify-content:center}
+    footer{padding:25px 0 35px;color:var(--soft);font:11px "DM Mono",monospace}.footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid rgba(87,111,132,.16);padding-top:22px}
+    @keyframes float{0%,100%{transform:rotateX(64deg) rotateZ(-24deg) translateY(0)}50%{transform:rotateX(64deg) rotateZ(-18deg) translateY(-12px)}}
+    @media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding:85px 0 70px}.visual{height:330px;max-width:480px;width:100%;margin:auto}.projects{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr;gap:30px}.skills{grid-template-columns:repeat(2,1fr)}.section-head{align-items:start;flex-direction:column}.section-note{max-width:600px}}
+    @media(max-width:640px){.shell{width:min(var(--max),calc(100% - 34px))}header{height:68px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;left:0;right:0;top:67px;padding:12px 18px 18px;background:rgba(11,14,19,.98);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 6px}.nav-cta{margin-top:8px;text-align:center}h1{font-size:clamp(43px,13vw,62px)}.hero{padding:70px 0 55px;gap:20px}.hero-lead{font-size:16px}.hero-foot{gap:12px}.visual{height:280px}.orbital{width:240px;height:240px}.orbital:before{inset:25px}.orbital:after{inset:60px}.core{width:88px;height:88px;font-size:23px;border-radius:24px}.visual-label.one{right:-2px;top:18px}.visual-label.two{left:-2px;bottom:20px}.visual-label.three{right:0;bottom:0}.projects{grid-template-columns:1fr}.project{min-height:0}.skills{grid-template-columns:1fr 1fr}.principles{grid-template-columns:1fr}.contact{padding:23px;flex-direction:column;align-items:flex-start}.contact-actions{width:100%}section{padding:65px 0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.project:hover,.button:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Pujolaras Anto home"><span class="brand-mark">PA</span><span>Pujolaras Anto</span></a>
+      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+        <a href="#work">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact" class="nav-cta">Get in touch ↗</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">Menu</button>
+    </div>
+  </header>
+  <main id="main">
+    <div class="shell hero" id="top">
+      <div class="hero-copy">
+        <div class="availability"><span class="dot"></span> COMPUTER SCIENCE STUDENT · BINUS UNIVERSITY</div>
+        <h1>Curious about how things work. <span>Driven to build.</span></h1>
+        <p class="hero-lead">I’m a computer science undergraduate interested in the intersection of artificial intelligence, application security, and software systems. I learn by building projects, studying how systems behave, and exploring ideas beyond the classroom.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#work">Explore selected work <span>↓</span></a>
+          <a class="button secondary" href="https://github.com/whiterose456" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+        <div class="hero-foot"><span>AI &amp; machine learning</span><span>Security research</span><span>Software engineering</span></div>
       </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CORE SKILLS & AUTHENTIC STACK (Synchronized with Resume) -->
-<section class="max-w-7xl mx-auto px-gutter py-space-xl w-full" id="skills-stack">
-<div class="rounded-3xl bg-surface-container-low/70 border border-outline-variant/30 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-2xl">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
-<!-- Skill Intro Column -->
-<div class="lg:col-span-4 flex flex-col gap-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-primary-container"></span>
-<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">PROVEN TECHNICAL MATRIX</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Technical Skills &amp; Arsenal</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">
-  Every skill listed below is actively exercised in repository code, model pipelines, and system audits.
-</p>
-<!-- Academic Snapshot Card -->
-<div class="p-space-md rounded-xl bg-surface-container-lowest/90 border border-primary-container/20 flex flex-col gap-2 shadow-lg">
-<div class="flex items-center justify-between">
-<span class="font-label-caps text-label-caps text-primary-container">ACADEMIC FOUNDATION</span>
-<span class="font-label-code text-xs text-outline">Class of 2029</span>
-</div>
-<h4 class="font-headline-sm text-sm text-on-surface font-semibold">BINUS University — Malang, Indonesia</h4>
-<p class="font-body-sm text-xs text-on-surface-variant">
-  Bachelor of Computer Science.<br>
-<strong>Relevant Coursework:</strong> Data Structures, Algorithms, Software Engineering, Artificial Intelligence Fundamentals.
-</p>
-</div>
-<!-- Philosophy Snippet -->
-<div class="p-space-md rounded-xl bg-surface-container/60 border border-outline-variant/30 flex flex-col gap-2">
-<span class="font-label-caps text-label-caps text-secondary">ENGINEERING MANTRA</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant italic">
-  "Rigorous systems thinking, deterministic algorithms, and continuous exploration of neural boundaries."
-</p>
-</div>
-</div>
-<!-- Category Grids (4 quadrants directly reflecting Resume) -->
-<div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-<!-- 1. Programming Languages -->
-<div class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-headline-sm text-headline-sm text-primary-fixed">Languages</span>
-<span class="material-symbols-outlined text-primary-container">code</span>
-</div>
-<div class="flex flex-col gap-space-xs pt-1">
-<div>
-<div class="flex justify-between font-label-code text-label-code mb-1">
-<span class="text-on-surface">Python (PyTorch / FastAPI)</span>
-<span class="text-primary-container">Proficient</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-primary-container h-full rounded-full" style="width: 95%;"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between font-label-code text-label-code mb-1">
-<span class="text-on-surface">TypeScript &amp; JavaScript</span>
-<span class="text-primary-container">Advanced</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-primary-container h-full rounded-full" style="width: 92%;"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between font-label-code text-label-code mb-1">
-<span class="text-on-surface">Rust &amp; Low-Level C</span>
-<span class="text-secondary">Systems</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-secondary h-full rounded-full" style="width: 82%;"></div>
-</div>
-</div>
-<div>
-<div class="flex justify-between font-label-code text-label-code mb-1">
-<span class="text-on-surface">Solidity</span>
-<span class="text-secondary">Auditing / DeFi</span>
-</div>
-<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
-<div class="bg-secondary h-full rounded-full" style="width: 80%;"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- 2. Machine Learning & AI -->
-<div class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-headline-sm text-headline-sm text-secondary">Machine Learning</span>
-<span class="material-symbols-outlined text-secondary">psychology</span>
-</div>
-<p class="font-body-sm text-xs text-on-surface-variant">Core research models &amp; agentic frameworks</p>
-<div class="flex flex-wrap gap-2 pt-2">
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">PyTorch</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Diffusion Models</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Multi-Agent Systems</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">LLM Applications (Qwen, Ollama)</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Model Evaluation</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Classifier-Free Guidance</span>
-</div>
-</div>
-<!-- 3. Frameworks & Libraries -->
-<div class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-headline-sm text-headline-sm text-primary-fixed">Frameworks &amp; Web</span>
-<span class="material-symbols-outlined text-primary-container">layers</span>
-</div>
-<p class="font-body-sm text-xs text-on-surface-variant">High-throughput reactive and async runtimes</p>
-<div class="flex flex-wrap gap-2 pt-2">
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">React &amp; Vite</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">Next.js</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">FastAPI</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">Express &amp; Node.js</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">LangGraph</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-primary-container/20">Tailwind CSS</span>
-</div>
-</div>
-<!-- 4. Systems, Security & Tools -->
-<div class="rounded-xl bg-surface-container/60 border border-outline-variant/30 p-space-md flex flex-col gap-space-sm shadow-md">
-<div class="flex items-center justify-between">
-<span class="font-headline-sm text-headline-sm text-secondary">Systems &amp; Security</span>
-<span class="material-symbols-outlined text-secondary">shield</span>
-</div>
-<p class="font-body-sm text-xs text-on-surface-variant">Audit methodologies &amp; execution toolchain</p>
-<div class="flex flex-wrap gap-2 pt-2">
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Smart Contract Security</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Memory Management</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Data Structures &amp; Algos</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Linux &amp; Bash</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Git &amp; PR Reviews</span>
-<span class="px-2.5 py-1 rounded-md bg-surface-container-highest text-on-surface font-label-code text-xs border border-secondary/20">Google Colab Pro</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- ABOUT & AUTHENTIC JOURNEY SECTION -->
-<section class="max-w-7xl mx-auto px-gutter py-space-xl w-full" id="about">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-<!-- Left Column: Visual Profile Card with Real Photo -->
-<div class="lg:col-span-5 flex flex-col items-center">
-<div class="relative w-full max-w-sm rounded-2xl bg-surface-container-high/80 border border-primary-container/20 backdrop-blur-xl p-space-md shadow-2xl flex flex-col items-center text-center">
-<div class="relative mb-space-sm">
-<div class="w-28 h-28 rounded-full overflow-hidden shadow-lg p-0.5 bg-gradient-to-tr from-primary-container via-secondary to-primary-container">
-<img alt="Pujolaras Anto Portrait" class="w-full h-full object-cover object-top rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9kPv4DezB15eLPckJdYtvoJINTSH1yvD82R4DAfxA-d3DYJUyR9iuxChmWHUlVdcw3jnBfpTeWGuUrZw0Zz8A0WdPj7r0Be9DEb_NnhMS9L9gO45fcuThmR_4b4MgkeWIolJ3BSlQndWXEVS-I01T4bTLNDOnQcOLTlW2VYUwDlS7YxkefSZsppI_x1NzKpN3VrMvimdoFKFFVbKsZAfccgoirdt6vrij7_jmp9KKJR6FKAwi-zNes-MOa8SNkBhZtiA">
-</div>
-<div class="absolute bottom-1 right-1 w-7 h-7 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shadow-md font-bold text-xs">
-✓
-</div>
-</div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface">Pujolaras Anto</h3>
-<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-wider mt-1">CS Undergrad @ BINUS Malang ('29)</span>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs mb-space-md">
-  Malang, East Java, Indonesia • AI Researcher • Systems Enthusiast • Chess Tactician
-</p>
-<div class="w-full flex flex-col gap-2">
-<a class="w-full py-2.5 rounded-lg bg-surface-container-highest hover:bg-secondary-container/40 text-on-surface hover:text-secondary font-label-code text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 border border-secondary/20" href="https://www.linkedin.com/in/pujolaras-anto" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-body-md text-secondary">share</span>
-<span class="">linkedin.com/in/pujolaras-anto</span>
-</a>
-<a class="w-full py-2.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container border border-primary-container/30 text-primary font-label-code text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-body-md text-primary-container">terminal</span>
-<span class="">github.com/whiterose456</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Right Column: Narrative Story -->
-<div class="lg:col-span-7 flex flex-col gap-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-primary-container"></span>
-<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest">AUTHENTIC TRAJECTORY</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-  Analytical Problem-Solving for Modern Engineering Challenges
-</h2>
-<div class="flex flex-col gap-space-sm font-body-md text-body-md text-on-surface-variant leading-relaxed">
-<p class="">Driven by relentless curiosity and self-directed exploration, I spend my waking hours diving deep into the mathematical underpinnings of generative diffusion models, low-level systems, and autonomous multi-agent coordination frameworks.</p>
-<p class="">
-  I refuse to treat code as just an abstract corporate commodity. For me, implementing a temporal residual U-Net in PyTorch or auditing a reentrancy attack on an EVM lending protocol carries the same high-stakes thrill as calculating a rook sacrifice in a rated blitz game.
-</p>
-<p class="">
-  My goal is clear: design resilient, verifiable software systems, contribute to open-source breakthroughs, and translate complex deep tech into viable, impactful real-world applications.
-</p>
-</div>
-<!-- Milestones Strip -->
-<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm pt-space-xs">
-<div class="p-space-sm rounded-lg bg-surface-container/60 border border-outline-variant/30 flex flex-col">
-<span class="font-label-caps text-label-caps text-primary-container"><br></span>
-<span class="font-headline-sm text-headline-sm text-on-surface"><br></span>
-<span class="font-body-sm text-body-sm text-outline"><br></span>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container/60 border border-outline-variant/30 flex flex-col">
-<span class="font-label-caps text-label-caps text-secondary">FOCUS</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">AI &amp; Agents</span>
-<span class="font-body-sm text-body-sm text-outline">Diffusion &amp; LangGraph</span>
-</div>
-<div class="p-space-sm rounded-lg bg-surface-container/60 border border-outline-variant/30 flex flex-col col-span-2 sm:col-span-1">
-<span class="font-label-caps text-label-caps text-primary-fixed">GRADUATION</span>
-<span class="font-headline-sm text-headline-sm text-on-surface">2029</span>
-<span class="font-body-sm text-body-sm text-outline">Expected Class</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- INTERACTIVE CONTACT & LIVE CLI TERMINAL -->
-<section class="max-w-7xl mx-auto px-gutter py-space-xl w-full" id="contact">
-<div class="relative rounded-3xl bg-gradient-to-b from-surface-container-high/90 to-surface-container/95 border border-primary-container/30 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-2xl overflow-hidden">
-<!-- Ambient Interior Glow -->
-<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary-container/15 rounded-full blur-3xl pointer-events-none"></div>
-<div class="absolute -left-20 -top-20 w-80 h-80 bg-secondary-container/25 rounded-full blur-3xl pointer-events-none"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-<!-- Contact Left Header -->
-<div class="lg:col-span-6 flex flex-col gap-space-md">
-<div class="flex items-center gap-space-xs">
-<span class="w-3 h-3 rounded-full bg-primary-container"></span>
-<span class="font-label-caps text-label-caps text-primary-container uppercase tracking-widest">INITIALIZE TRANSMISSION</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
-  Let's Build Something High-Velocity Together
-</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">
-  Open for AI research fellowships, software engineering internships, open-source collaborations, and tech venture discussions.
-</p>
-<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
-<a class="inline-flex items-center gap-2 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container font-label-code text-label-code font-bold uppercase tracking-wider hover:bg-primary transition-all shadow-[0_0_20px_rgba(0,240,255,0.35)]" href="mailto:jo721467@gmail.com">
-<span class="material-symbols-outlined text-body-md">mail</span>
-<span class="">jo721467@gmail.com</span>
-</a>
-<a class="inline-flex items-center gap-2 px-space-md py-space-sm rounded-xl bg-surface-container-highest hover:bg-secondary-container/40 text-on-surface hover:text-secondary font-label-code text-label-code uppercase tracking-wider transition-all border border-secondary/25" href="https://www.linkedin.com/in/pujolaras-anto" rel="noopener noreferrer" target="_blank">
-<span class="material-symbols-outlined text-body-md text-secondary">open_in_new</span>
-<span class="">LinkedIn Profile</span>
-</a>
-</div>
-</div>
-<!-- Interactive Live Terminal Console -->
-<div class="lg:col-span-6">
-<div class="rounded-2xl bg-surface-container-lowest/95 border border-outline-variant/30 backdrop-blur-md p-space-md shadow-2xl flex flex-col gap-space-sm">
-<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
-<div class="flex items-center gap-2">
-<span class="w-3 h-3 rounded-full bg-error"></span>
-<span class="w-3 h-3 rounded-full bg-[#f59e0b]"></span>
-<span class="w-3 h-3 rounded-full bg-primary-container"></span>
-<span class="ml-2 font-label-caps text-label-caps text-outline">terminal@pujolaras:~$</span>
-</div>
-<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-caps text-label-caps flex items-center gap-1 transition-colors border border-outline-variant/30" id="copy-btn">
-<span class="material-symbols-outlined text-[14px]">content_copy</span>
-<span id="copy-label" class="">COPY CLI COMMAND</span>
-</button>
-</div>
-<!-- Terminal Content -->
-<div class="font-label-code text-label-code flex flex-col gap-2 py-2">
-<p class="text-on-surface-variant">
-<span class="text-secondary">$</span> curl -s https://api.pujolaras.dev/resume.json
-</p>
-<div class="p-space-sm rounded-lg bg-surface-container/70 border border-outline-variant/20 text-on-surface text-body-sm flex flex-col gap-1 overflow-x-auto">
-<div class=""><span class="text-primary-container">"name"</span>: <span class="text-secondary">"Pujolaras Anto"</span>,</div>
-<div class=""><span class="text-primary-container">"education"</span>: <span class="text-secondary">"BINUS University Malang ('29)"</span>,</div>
-<div class=""><span class="text-primary-container">"email"</span>: <a class="text-primary hover:underline" href="mailto:jo721467@gmail.com">"jo721467@gmail.com"</a>,</div>
-<div class=""><span class="text-primary-container">"github"</span>: <a class="text-primary hover:underline" href="https://github.com/whiterose456" target="_blank">"github.com/whiterose456"</a>,</div>
-<div class=""><span class="text-primary-container">"linkedin"</span>: <a class="text-primary hover:underline" href="https://www.linkedin.com/in/pujolaras-anto" target="_blank">"linkedin.com/in/pujolaras-anto"</a>,</div>
-<div class=""><span class="text-primary-container">"interests"</span>: [<span class="text-primary-fixed">"Multi-Agent AI"</span>, <span class="text-primary-fixed">"Guided Diffusion"</span>, <span class="text-primary-fixed">"Chess 1.e4"</span>, <span class="text-primary-fixed">"BMC Modeling"</span>],</div>
-<div class=""><span class="text-primary-container">"status"</span>: <span class="text-[#10b981]">"Ready to Build &amp; Deploy"</span></div>
-</div>
-<p class="text-on-surface-variant flex items-center gap-1">
-<span class="text-secondary">$</span>
-<span class="text-on-surface">pujolaras.collaborate()</span>
-<span class="inline-block w-2 h-4 bg-primary-container animate-pulse ml-1"></span>
-</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</div>
-</div>
-</main>
-<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/20"><div class="max-w-7xl mx-auto px-gutter py-space-xl"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-lg"><div class="md:col-span-5 flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><div class="w-7 h-7 rounded bg-surface-container flex items-center justify-center font-bold text-xs text-primary-container border border-primary-container/30">PA</div><span class="font-headline-sm text-headline-sm text-on-surface">Pujolaras Anto</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Computer Science Undergraduate @ BINUS University Malang. Architecting multi-agent simulations, guided diffusion models, and smart contract security frameworks.</p></div><div class="md:col-span-3 flex flex-col gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface uppercase">Direct Navigation</span><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="overview" href="#">Overview</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="featured-work" href="#featured-work">Featured Projects</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="mindset-sandbox" href="#beyond-the-screen">Mindset &amp; Chess Sandbox</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="skills-stack" href="#skills-stack">Skills Matrix</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#contact">Contact &amp; Terminal</a></div><div class="md:col-span-4 flex flex-col gap-space-xs"><span class="font-label-caps text-label-caps text-on-surface uppercase">Verified Networks</span><div class="flex flex-col gap-space-xs"><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="https://github.com/whiterose456" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-body-sm text-primary-container">terminal</span>github.com/whiterose456</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="https://www.linkedin.com/in/pujolaras-anto" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-body-sm text-secondary">share</span>linkedin.com/in/pujolaras-anto</a><a class="font-label-code text-label-code text-on-surface-variant hover:text-primary transition-colors flex items-center gap-space-xs" href="mailto:jo721467@gmail.com"><span class="material-symbols-outlined text-body-sm text-tertiary-fixed-dim">mail</span>jo721467@gmail.com</a></div></div></div><div class="pt-space-md border-t border-outline-variant/15 flex flex-col sm:flex-row items-center justify-between gap-space-sm"><span class="font-label-caps text-label-caps text-on-surface-variant">© 2024–2026 Pujolaras Anto • BINUS University Malang (Class of 2029)</span><span class="font-label-caps text-label-caps text-primary-container">Engineered with Precision &amp; Genuine Curiosity</span></div></div></footer>
-
-<script id="portfolio-interactions">
-document.addEventListener('DOMContentLoaded', () => {
-  const menuButton = document.getElementById('mobile-menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const setMenuOpen = (open) => {
-    if (!menuButton || !mobileMenu) return;
-    mobileMenu.classList.toggle('hidden', !open);
-    menuButton.setAttribute('aria-expanded', String(open));
-    menuButton.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-    const icon = menuButton.querySelector('.material-symbols-outlined');
-    if (icon) icon.textContent = open ? 'close' : 'menu';
-    document.body.classList.toggle('overflow-hidden', open);
-  };
-  menuButton?.addEventListener('click', () => setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true'));
-  mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
-  document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenuOpen(false); });
-  window.addEventListener('resize', () => { if (window.innerWidth >= 1024) setMenuOpen(false); });
-
-  const projectCards = [...document.querySelectorAll('.project-card')];
-  const filterButtons = [...document.querySelectorAll('.filter-btn')];
-  const allFilter = filterButtons.find(button => button.dataset.filter === 'all');
-  if (allFilter) allFilter.textContent = 'All (' + projectCards.length + ')';
-  filterButtons.forEach(button => {
-    button.setAttribute('aria-pressed', String(button.dataset.filter === 'all'));
-    button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
-      filterButtons.forEach(item => {
-        const active = item === button;
-        item.setAttribute('aria-pressed', String(active));
-        item.classList.toggle('bg-primary-container', active);
-        item.classList.toggle('text-on-primary-container', active);
-        item.classList.toggle('font-semibold', active);
-        item.classList.toggle('text-on-surface-variant', !active);
-      });
-      projectCards.forEach(card => {
-        const visible = filter === 'all' || card.dataset.category === filter;
-        card.hidden = !visible;
-        card.setAttribute('aria-hidden', String(!visible));
-      });
-    });
-  });
-
-  document.querySelectorAll('main img').forEach((img, index) => {
-    if (index > 0 && !img.hasAttribute('loading')) img.loading = 'lazy';
-    if (!img.hasAttribute('decoding')) img.decoding = 'async';
-  });
-
-  const sectionLinks = [...document.querySelectorAll('header nav a[href^="#"]')];
-  const sections = sectionLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
-  if ('IntersectionObserver' in window && sections.length) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        sectionLinks.forEach(link => {
-          const active = link.getAttribute('href') === '#' + entry.target.id;
-          if (active) link.setAttribute('aria-current', 'location');
-          else link.removeAttribute('aria-current');
-          link.classList.toggle('text-primary-container', active);
-          link.classList.toggle('font-medium', active);
-        });
-      });
-    }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
-    sections.forEach(section => observer.observe(section));
-  }
-
-  const copyButton = document.getElementById('copy-btn');
-  const copyLabel = document.getElementById('copy-label');
-  copyButton?.addEventListener('click', async () => {
-    const command = 'curl -s https://api.pujolaras.dev/resume.json';
-    let copied = false;
-    try {
-      if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(command);
-        copied = true;
-      } else {
-        const field = document.createElement('textarea');
-        field.value = command;
-        field.setAttribute('readonly', '');
-        field.style.position = 'fixed';
-        field.style.opacity = '0';
-        document.body.appendChild(field);
-        field.select();
-        copied = document.execCommand('copy');
-        field.remove();
-      }
-    } catch (_) { copied = false; }
-    if (copyLabel) {
-      copyLabel.textContent = copied ? 'COPIED TO CLIPBOARD' : 'COPY NOT AVAILABLE';
-      window.setTimeout(() => { copyLabel.textContent = 'COPY CLI COMMAND'; }, 2200);
-    }
-  });
-});
-</script>
-</body></html>
+      <div class="visual" aria-label="Abstract orbital illustration representing connected areas of computer science">
+        <div class="visual-glow"></div><div class="orbital"><span class="satellite"></span><span class="satellite s2"></span><div class="core">PA</div></div>
+        <div class="visual-label one">01 / MACHINE LEARNING</div><div class="visual-label two">02 / SYSTEMS &amp; SECURITY</div><div class="visual-label three">BUILD · TEST · LEARN</div>
+      </div>
+    </div>
+    <section id="work">
+      <div class="shell">
+        <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects &amp; experiments</h2></div><p class="section-note">A selection of things I’ve built or explored. Each project is a chance to learn a tool, understand a system, or work through a practical problem.</p></div>
+        <div class="project-tools" role="group" aria-label="Filter projects">
+          <button class="filter" data-filter="all" aria-pressed="true">All projects</button><button class="filter" data-filter="ai" aria-pressed="false">AI / ML</button><button class="filter" data-filter="security" aria-pressed="false">Security</button><button class="filter" data-filter="software" aria-pressed="false">Software</button>
+        </div>
+        <div class="projects" id="projects">
+          <article class="project" data-category="software">
+            <div class="project-top"><span class="project-icon">01</span><span class="project-type">OSINT · Web</span></div>
+            <h3>OSINT World News</h3><p>A news-monitoring project focused on collecting and organizing open-source reporting into a more useful view of world events.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">News feeds</span><span class="tag">OSINT</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/Osint-world-news-" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+          <article class="project" data-category="ai">
+            <div class="project-top"><span class="project-icon">02</span><span class="project-type">AI · Hackathon</span></div>
+            <h3>SupplySentinel</h3><p>An exploration of agent-based workflows for supply-chain disruption scenarios, with an emphasis on coordination and decision support.</p>
+            <div class="tags"><span class="tag">AI agents</span><span class="tag">LangGraph</span><span class="tag">Python</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/SupplySentinel-" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+          <article class="project" data-category="security">
+            <div class="project-top"><span class="project-icon">03</span><span class="project-type">Smart contracts</span></div>
+            <h3>Solidity Lending Protocol</h3><p>A lending-protocol codebase for exploring smart-contract architecture, protocol logic, and security considerations in Solidity.</p>
+            <div class="tags"><span class="tag">Solidity</span><span class="tag">EVM</span><span class="tag">Security</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/Solidity-lending-protocol" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+          <article class="project" data-category="ai">
+            <div class="project-top"><span class="project-icon">04</span><span class="project-type">Computer vision</span></div>
+            <h3>ObatKu Scan</h3><p>A prototype exploring image-based classification of over-the-counter medicines, with MobileNetV2 as the initial model approach.</p>
+            <div class="tags"><span class="tag">Computer vision</span><span class="tag">MobileNetV2</span><span class="tag">Python</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/Obatku-scan" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+          <article class="project" data-category="software">
+            <div class="project-top"><span class="project-icon">05</span><span class="project-type">Developer tools</span></div>
+            <h3>PromptOverflow</h3><p>A Q&amp;A-style interface concept for sharing, discovering, and organizing prompts for AI tools.</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Tailwind</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/Promptoverflow" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+          <article class="project" data-category="software">
+            <div class="project-top"><span class="project-icon">06</span><span class="project-type">Open source · Learning</span></div>
+            <h3>Awesome CS &amp; AI Repositories</h3><p>A curated collection of repositories and learning resources across computer science, AI, and related technical fields.</p>
+            <div class="tags"><span class="tag">Research</span><span class="tag">Curation</span><span class="tag">Computer science</span></div>
+            <a class="project-link" href="https://github.com/whiterose456/Awesome-repo-listfortechCS_AI" target="_blank" rel="noopener noreferrer"><span>View repository</span><span>↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="shell split">
+        <aside class="about-card"><div class="about-initials">PA</div><h3>Pujolaras Anto</h3><p>Computer Science undergraduate at BINUS University, Indonesia.</p><div class="about-links"><a href="https://github.com/whiterose456" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/pujolaras-anto" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></aside>
+        <div class="about-copy"><div class="eyebrow">A little about me</div><h2>I like connecting ideas across disciplines.</h2><p>My interests move between machine learning, AI agents, cybersecurity, and the engineering foundations that make software reliable. I’m especially interested in understanding systems deeply: how models learn, how applications fail, how protocols behave, and how separate components can work together.</p><p>Outside coursework, I use independent projects and technical reading to explore topics that catch my attention. I also enjoy chess, writing, and learning about fields beyond computer science. I’m still developing my expertise, and I value careful experimentation, clear documentation, and honest engineering over inflated claims.</p>
+          <div class="principles"><div class="principle"><strong>Learn by building</strong><span>Turn questions into small experiments and working prototypes.</span></div><div class="principle"><strong>Understand the details</strong><span>Look beneath abstractions and ask how the underlying system works.</span></div><div class="principle"><strong>Stay interdisciplinary</strong><span>Bring ideas from mathematics, security, science, and the arts together.</span></div><div class="principle"><strong>Share the process</strong><span>Document findings, limitations, and what still needs work.</span></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="skills">
+      <div class="shell"><div class="section-head"><div><div class="eyebrow">Tools &amp; topics</div><h2>Areas I’m working with</h2></div><p class="section-note">A snapshot of languages, tools, and technical areas I’ve used or studied. Not a claim of equal depth across every item.</p></div>
+        <div class="skills">
+          <div class="skill-group"><h3>Languages</h3><p>Python · C · Rust · Solidity · JavaScript / TypeScript</p></div>
+          <div class="skill-group"><h3>AI &amp; ML</h3><p>Machine learning · Computer vision · Diffusion models · AI agents · RAG</p></div>
+          <div class="skill-group"><h3>Security</h3><p>Application security · Smart-contract security · OSINT · Vulnerability research</p></div>
+          <div class="skill-group"><h3>Engineering tools</h3><p>Git · Docker · Kubernetes · Linux · React · PyTorch</p></div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="shell"><div class="contact"><div><div class="eyebrow">Contact</div><h2>Have an interesting problem?</h2><p>I’m glad to connect about software engineering, AI, security research, open-source projects, and opportunities to learn from people building useful things.</p></div><div class="contact-actions"><a class="button primary" href="mailto:jo721467@gmail.com">Send an email ↗</a><a class="button secondary" href="https://www.linkedin.com/in/pujolaras-anto" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div></div></div>
+    </section>
+  </main>
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> Pujolaras Anto</span><span>Made with curiosity and care.</span><a href="#top">Back to top ↑</a></div></footer>
+  <script>
+    const menuButton=document.getElementById('menu-toggle');
+    const nav=document.getElementById('nav-links');
+    function closeMenu(){nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open menu');}
+    menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';nav.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close menu':'Open menu');});
+    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu();});
+    window.addEventListener('resize',()=>{if(window.innerWidth>640)closeMenu();});
+    document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{const filter=button.dataset.filter;document.querySelectorAll('.filter').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));document.querySelectorAll('.project').forEach(card=>{card.hidden=filter!=='all'&&card.dataset.category!==filter;});}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+    const sectionLinks=[...document.querySelectorAll('.nav-links a[href^="#"]')];
+    if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){sectionLinks.forEach(link=>{if(link.hash==='#'+entry.target.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');});}}),{rootMargin:'-35% 0px -55% 0px'});['work','about','skills','contact'].forEach(id=>{const section=document.getElementById(id);if(section)observer.observe(section);});}
+  </script>
+</body>
+</html>
